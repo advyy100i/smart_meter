@@ -1,0 +1,5 @@
+{
+    "sketch": "smart_meter_rs.ino",
+    "board": "arduino:avr:uno",
+    "port": "COM5"
+}
