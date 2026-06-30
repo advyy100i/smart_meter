@@ -13,7 +13,7 @@ const producer = kafka.producer();
 const server = net.createServer();
 
 function parseTCPPacket(buffer) {
-  if (buffer.length < 16) {
+  if (buffer.length < 20) {
     throw new Error("Invalid packet length");
   }
 
@@ -38,7 +38,7 @@ async function main() {
   await producer.connect();
   console.log("Kafka producer connected");
 
-  server.on("connect", async function (socket) {
+  server.on("connection", async function (socket) {
     console.log(
       `Client connected: ${socket.remoteAddress}:${socket.remotePort}`
     );
